@@ -1,0 +1,214 @@
+@import "tailwindcss";
+
+:root {
+  --background: #fdfaff;
+  --foreground: #241f2b;
+
+  /* Márkaszínek – barátságos, levendulás lila paletta kutyakozmetikához.
+     Korábban meleg barna/narancs volt, az ügyfél kérésére váltottunk erre
+     a lilás/levendulás irányra (2026-09) – ez a paletta adja a fejléc, a
+     gombok, a linkek és a tetőn lévő tehénfolt-díszítés (BrandBlobs.tsx)
+     színét is, mert azok mind a var(--color-brand-*) változókra
+     hivatkoznak. */
+  --color-brand-50: #f7f2fb;
+  --color-brand-100: #ecdff6;
+  --color-brand-300: #cba3e6;
+  --color-brand-500: #9a5cc0;
+  --color-brand-600: #82459f;
+  --color-brand-700: #693783;
+  --color-brand-900: #37204a;
+}
+
+@theme inline {
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --font-sans: system-ui, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+
+  --color-brand-50: var(--color-brand-50);
+  --color-brand-100: var(--color-brand-100);
+  --color-brand-300: var(--color-brand-300);
+  --color-brand-500: var(--color-brand-500);
+  --color-brand-600: var(--color-brand-600);
+  --color-brand-700: var(--color-brand-700);
+  --color-brand-900: var(--color-brand-900);
+}
+
+body {
+  background: var(--background);
+  color: var(--foreground);
+  font-family: var(--font-sans), Arial, Helvetica, sans-serif;
+}
+
+/* ---------------------------------------------------------------------
+   Dekoratív háttérdíszítés VALÓDI tehénfolt-sziluettekkel (lásd
+   BrandBlobs.tsx). Minden "folt" (.brand-spot-*) egy nálunk kapott,
+   tényleges tehénmintás SVG-ből kinyert path – a `color` itt adja a
+   kitöltés színét (a komponensben `fill="currentColor"` van), az
+   `opacity`/`width`/`height`/pozíció pedig a wrapper divre kerül.
+   Csak a wrapper kap transform-animációt (úszás, forgás, méret-pulzálás),
+   maga a path nem torzul, a sziluett mindig tiszta marad.
+   ------------------------------------------------------------------- */
+.brand-spot {
+  position: absolute;
+  will-change: transform;
+}
+
+.brand-spot-a {
+  top: -14%;
+  left: -10%;
+  width: 23rem;
+  height: 30rem;
+  color: var(--color-brand-300);
+  opacity: 0.5;
+  animation: brand-spot-float-a 13s ease-in-out infinite;
+}
+
+.brand-spot-b {
+  bottom: -14%;
+  right: -12%;
+  width: 30rem;
+  height: 21rem;
+  color: var(--color-brand-600);
+  opacity: 0.2;
+  animation: brand-spot-float-b 16s ease-in-out infinite;
+}
+
+/* A tető sűrítéséhez: középen fent. */
+.brand-spot-c {
+  top: -6%;
+  left: 46%;
+  width: 14rem;
+  height: 17rem;
+  color: var(--color-brand-900);
+  opacity: 0.14;
+  animation: brand-spot-float-c 11s ease-in-out infinite;
+}
+
+/* A tető sűrítéséhez: bal oldalon, feljebb. */
+.brand-spot-d {
+  top: 2%;
+  left: 18%;
+  width: 15rem;
+  height: 11rem;
+  color: var(--color-brand-500);
+  opacity: 0.3;
+  animation: brand-spot-float-d 9s ease-in-out infinite;
+  animation-delay: -2s;
+}
+
+.brand-spot-e {
+  top: 38%;
+  right: 4%;
+  width: 9rem;
+  height: 10rem;
+  color: var(--color-brand-700);
+  opacity: 0.22;
+  animation: brand-spot-float-e 10.5s ease-in-out infinite;
+  animation-delay: -4s;
+}
+
+.brand-spot-f {
+  bottom: 4%;
+  left: 5%;
+  width: 6rem;
+  height: 10rem;
+  color: var(--color-brand-100);
+  opacity: 0.5;
+  animation: brand-spot-float-f 14s ease-in-out infinite;
+  animation-delay: -6s;
+}
+
+/* Apró kísérőfolt fent, a "tető" további sűrítéséhez. */
+.brand-spot-g {
+  top: 6%;
+  right: 24%;
+  width: 7rem;
+  height: 6rem;
+  color: var(--color-brand-600);
+  opacity: 0.18;
+  animation: brand-spot-float-g 8s ease-in-out infinite;
+  animation-delay: -1s;
+}
+
+@keyframes brand-spot-float-a {
+  0%,
+  100% {
+    transform: translate(0, 0) rotate(0deg) scale(1);
+  }
+  33% {
+    transform: translate(7%, 9%) rotate(10deg) scale(1.08);
+  }
+  66% {
+    transform: translate(-6%, 5%) rotate(-8deg) scale(0.94);
+  }
+}
+
+@keyframes brand-spot-float-b {
+  0%,
+  100% {
+    transform: translate(0, 0) rotate(0deg) scale(1);
+  }
+  40% {
+    transform: translate(-7%, -8%) rotate(-12deg) scale(1.07);
+  }
+  70% {
+    transform: translate(6%, -3%) rotate(8deg) scale(0.95);
+  }
+}
+
+@keyframes brand-spot-float-c {
+  0%,
+  100% {
+    transform: translate(0, 0) rotate(0deg) scale(1);
+  }
+  50% {
+    transform: translate(-8%, 6%) rotate(-14deg) scale(1.12);
+  }
+}
+
+@keyframes brand-spot-float-d {
+  0%,
+  100% {
+    transform: translate(0, 0) rotate(0deg) scale(1);
+  }
+  50% {
+    transform: translate(6%, 8%) rotate(12deg) scale(1.1);
+  }
+}
+
+@keyframes brand-spot-float-e {
+  0%,
+  100% {
+    transform: translate(0, 0) rotate(0deg) scale(1);
+  }
+  50% {
+    transform: translate(8%, -9%) rotate(14deg) scale(1.15);
+  }
+}
+
+@keyframes brand-spot-float-f {
+  0%,
+  100% {
+    transform: translate(0, 0) rotate(0deg) scale(1);
+  }
+  50% {
+    transform: translate(9%, 8%) rotate(10deg) scale(0.9);
+  }
+}
+
+@keyframes brand-spot-float-g {
+  0%,
+  100% {
+    transform: translate(0, 0) rotate(0deg) scale(1);
+  }
+  50% {
+    transform: translate(-10%, 10%) rotate(-16deg) scale(1.2);
+  }
+}
+
+/* Mozgásérzékeny látogatóknak (accessibility): állóképként jelenjenek meg. */
+@media (prefers-reduced-motion: reduce) {
+  .brand-spot {
+    animation: none !important;
+  }
+}
