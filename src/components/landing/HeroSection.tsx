@@ -24,14 +24,6 @@ export function HeroSection() {
             >
               {hero.ctaLabel}
             </Link>
-            <Link
-              href={hero.secondaryCtaHref}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="rounded-full border border-stone-300 px-6 py-3 text-sm font-semibold text-stone-800 hover:bg-white transition-colors"
-            >
-              {hero.secondaryCtaLabel}
-            </Link>
           </div>
         </div>
 

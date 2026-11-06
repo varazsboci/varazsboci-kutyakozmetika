@@ -5,14 +5,13 @@ import { siteContent } from "@/lib/content";
 // A "Munkáim" menüpont egyelőre le van véve – a PortfolioPreviewSection
 // nincs a főoldalon. Ha visszakerül: { href: "/#munkaim", label: "Munkáim" },
 //
-// A "Foglalás" menüpont a Merci által használt külső foglalási rendszerre
-// (minup.io) mutat, ezért `external: true` – ez új lapon nyitja meg, nem
-// a Next.js Link belső navigációjával.
+// A "Foglalás" menüpont (ami korábban a minup.io külső foglalási
+// rendszerre mutatott) az ügyfél kérésére eltávolításra került, mivel
+// jelenleg nincs online foglalási lehetőség.
 const navItems = [
   { href: "/#szolgaltatasok", label: "Szolgáltatások" },
   { href: "/#magamrol", label: "Magamról" },
   { href: "/#kapcsolat", label: "Kapcsolat" },
-  { href: siteContent.booking.bookingUrl ?? "#", label: "Foglalás", external: true },
 ];
 
 export function Header() {
@@ -46,17 +45,14 @@ export function Header() {
           {/* Az ügyfél kérésére a fejlécből kikerült a "Kapcsolatfelvétel"
               gomb – a kapcsolat szekció továbbra is elérhető a "Kapcsolat"
               menüponton keresztül, illetve a Hero szekció saját CTA
-              gombjával is. Helyette bekerült egy "Foglalás" menüpont, ami a
-              nav többi eleméhez hasonló, sima szöveges linkként jelenik meg
-              (nem kiemelt gombként), de külső oldalra (minup.io) mutat. */}
+              gombjával is. A korábbi, minup.io-ra mutató "Foglalás"
+              menüpont is eltávolításra került, mivel jelenleg nincs online
+              foglalási lehetőség. */}
           <nav className="hidden gap-6 text-sm font-medium text-stone-700 md:flex">
             {navItems.map((item) => (
               <Link
                 key={item.href}
                 href={item.href}
-                {...(item.external
-                  ? { target: "_blank", rel: "noopener noreferrer" }
-                  : {})}
                 className="hover:text-brand-700 transition-colors"
               >
                 {item.label}

@@ -11,8 +11,8 @@
 
 export const siteContent = {
   brand: {
-    name: "VarázsBoci Kutyakozmetika",
-    shortName: "VarázsBoci",
+    name: "The Groom Room Kutyakozmetika",
+    shortName: "The Groom Room",
     tagline: "Ahol a kutyád szeretetteljes gondoskodásban részesül",
     logoUrl: "/logo.png",
   },
@@ -28,13 +28,6 @@ export const siteContent = {
     // megmaradt a lemezen, csak nincs behúzva a főoldalba).
     ctaLabel: "Kapcsolatfelvétel",
     ctaHref: "#kapcsolat",
-    // A második (kontúros) gomb korábban a "Szolgáltatásaink" szekcióra
-    // ugrott lent az oldalon; az ügyfél kérésére most a Merci által
-    // használt külső foglalási rendszerre (minup.io) mutat "Foglalás"
-    // felirattal, új lapon nyílik meg.
-    secondaryCtaLabel: "Foglalás",
-    secondaryCtaHref:
-      "https://app.minup.io/book/honeykutyakozmetika/locations/c0bb4ece-fbf2-4d22-ac72-38e40c07f6d1/team-members/ff7b1269-194d-4786-a437-65e82cf1dce5",
     imageUrl: "/hero.jpg",
   },
 
@@ -43,7 +36,7 @@ export const siteContent = {
     // Az ügyfél (Merci) végleges, jóváhagyott bemutatkozó szövege.
     body: [
       "Szia, Merci vagyok! 🐾",
-      "22 éves, és 2026 februárjában végeztem kutyakozmetikusként. Jelenleg Veszprémben, a Honey Kutyakozmetikában bérlek asztalt, ahol szeretettel várom a négylábú vendégeimet. 🥰",
+      "22 éves, és 2026 februárjában végeztem kutyakozmetikusként. Jelenleg Siófokon, a The Groom Room Kutyakozmetikában dolgozom, ahol szeretettel várom a négylábú vendégeimet. 🥰",
       "Számomra a legfontosabb, hogy a kutyusok biztonságban és jól érezzék magukat nálam, ezért mindenkihez türelemmel és szeretettel közelítek. Folyamatosan tanulok és fejlődöm, hogy mindig a lehető legjobbat nyújthassam.",
       "Remélem, hamarosan a Te kutyusoddal is találkozhatok! 🐶❤️",
     ],
@@ -108,16 +101,15 @@ export const siteContent = {
     heading: "Kapcsolat",
     email: "varazsbocikutyakozmetika@gmail.com",
     phone: "+36 20 254 9211",
-    // Az ügyfél a Honey Kutyakozmetika címén dolgozik (nála van bérelt
-    // székhely), ezért ez szerepel a kapcsolat címeként is.
-    addressLine: "Veszprém, Damjanich u. 7/c (Honey Kutyakozmetika)",
-    // Külön kereső-szöveg a Google Térkép beágyazáshoz/linkhez – a "Honey
-    // Kutyakozmetika" névvel elöl pontosabb találatot ad, mintha csak a
-    // nyers címet küldenénk be.
-    mapQuery: "Honey Kutyakozmetika, Veszprém, Damjanich utca 7/c",
+    addressLine: "Siófok, Hock János köz 2. Fsz. 9.",
+    // Külön kereső-szöveg a Google Térkép beágyazáshoz/linkhez – az üzlet
+    // nevével elöl pontosabb találatot ad, mintha csak a nyers címet
+    // küldenénk be.
+    mapQuery: "The Groom Room Kutyakozmetika, Siófok, Hock János köz 2.",
+    // Az ügyfél kérésére: nincs fix nyitvatartás, minden alkalom előzetes
+    // egyeztetés alapján történik.
     openingHours: [
-      { day: "Hétfő–Péntek", hours: "10:00–16:00" },
-      { day: "Hétvége", hours: "Előzetes egyeztetés alapján" },
+      { day: "Minden nap", hours: "Előzetes egyeztetés alapján" },
     ],
   },
 
@@ -127,15 +119,14 @@ export const siteContent = {
       "Foglalj időpontot pár kattintással! Minden foglalást kézzel hagyunk jóvá, erről emailben értesítést kapsz.",
     cancellationPolicy:
       "Lemondás vagy időpontmódosítás a foglalt időpont előtt legkésőbb 24 órával lehetséges.",
-    // A Merci által használt külső foglalási rendszer (minup.io) linkje –
-    // jelenleg a Hero szekció "Foglalás" gombja mutat közvetlenül erre az
-    // URL-re (lásd hero.secondaryCtaHref fentebb). A BookingSection
-    // komponens (saját, beágyazott foglalási felület) emiatt továbbra sincs
-    // behúzva a főoldalba (lásd src/app/(site)/page.tsx) – a fájl csak
-    // megmaradt a lemezen, ha egyszer mégis kellene egy teljesebb, oldalon
-    // belüli foglalási szekció.
-    bookingUrl:
-      "https://app.minup.io/book/honeykutyakozmetika/locations/c0bb4ece-fbf2-4d22-ac72-38e40c07f6d1/team-members/ff7b1269-194d-4786-a437-65e82cf1dce5" as string | null,
+    // Jelenleg nincs online foglalási lehetőség (az ügyfél kérésére a
+    // korábbi minup.io-s "Foglalás" gomb/menüpont eltávolításra került a
+    // Hero szekcióból és a fejlécből is). A BookingSection komponens (saját,
+    // beágyazott foglalási felület) továbbra sincs behúzva a főoldalba
+    // (lásd src/app/(site)/page.tsx) – a fájl csak megmaradt a lemezen, ha
+    // egyszer mégis kellene egy teljesebb, oldalon belüli foglalási
+    // szekció.
+    bookingUrl: null as string | null,
   },
 
   legal: {
