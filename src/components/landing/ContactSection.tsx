@@ -80,14 +80,9 @@ export function ContactSection() {
 
           <div className="mt-6">
             <p className="text-sm font-medium text-stone-500">Nyitvatartás</p>
-            <ul className="mt-2 space-y-1 text-stone-600">
-              {contact.openingHours.map((row) => (
-                <li key={row.day} className="flex justify-between gap-4 text-sm">
-                  <span>{row.day}</span>
-                  <span>{row.hours}</span>
-                </li>
-              ))}
-            </ul>
+            <p className="mt-2 text-sm text-stone-600">
+              {contact.openingHoursNote}
+            </p>
           </div>
 
           <div className="mt-6">

@@ -9,7 +9,7 @@ import "./globals.css";
 // bekötni.
 
 export const metadata: Metadata = {
-  title: `${siteContent.brand.name} | ${siteContent.brand.tagline}`,
+  title: `${siteContent.brand.browserTabTitle} | ${siteContent.brand.tagline}`,
   description: siteContent.hero.subheading,
 };
 

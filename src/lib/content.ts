@@ -13,6 +13,10 @@ export const siteContent = {
   brand: {
     name: "The Groom Room Kutyakozmetika",
     shortName: "The Groom Room",
+    // Az ügyfél kérésére a böngészőfül (tab) címe marad a régi "VarázsBoci"
+    // néven, annak ellenére, hogy az oldal tartalma máshol mindenhol a
+    // "The Groom Room" nevet használja – lásd src/app/layout.tsx.
+    browserTabTitle: "VarázsBoci",
     tagline: "Ahol a kutyád szeretetteljes gondoskodásban részesül",
     logoUrl: "/logo.png",
   },
@@ -107,10 +111,9 @@ export const siteContent = {
     // küldenénk be.
     mapQuery: "The Groom Room Kutyakozmetika, Siófok, Hock János köz 2.",
     // Az ügyfél kérésére: nincs fix nyitvatartás, minden alkalom előzetes
-    // egyeztetés alapján történik.
-    openingHours: [
-      { day: "Minden nap", hours: "Előzetes egyeztetés alapján" },
-    ],
+    // egyeztetés alapján történik – ezért itt egyetlen sima szöveg van egy
+    // napi bontású táblázat helyett.
+    openingHoursNote: "Előzetes egyeztetés alapján akár a hét összes napján",
   },
 
   booking: {
